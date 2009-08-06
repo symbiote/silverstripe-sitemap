@@ -98,7 +98,7 @@ class SitemapPage extends Page {
 			case 'ChildrenOf':
 				return DataObject::get('SiteTree', "\"ParentID\" = $this->ParentPageID AND \"ShowInMenus\" = 1");
 			case 'Selected':
-				return;
+				return $this->PagesToShow('"ShowInMenus" = 1');
 		}
 	}
 	
