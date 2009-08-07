@@ -93,12 +93,13 @@ class SitemapPage extends Page {
 	 */
 	public function getRootPages() {
 		switch($this->PagesToDisplay) {
-			case 'All':
-				return DataObject::get('SiteTree', '"ParentID" = 0 AND "ShowInMenus" = 1');
 			case 'ChildrenOf':
 				return DataObject::get('SiteTree', "\"ParentID\" = $this->ParentPageID AND \"ShowInMenus\" = 1");
 			case 'Selected':
 				return $this->PagesToShow('"ShowInMenus" = 1');
+			case 'All':
+			default:
+				return DataObject::get('SiteTree', '"ParentID" = 0 AND "ShowInMenus" = 1');
 		}
 	}
 	
