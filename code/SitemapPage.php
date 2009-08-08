@@ -92,14 +92,21 @@ class SitemapPage extends Page {
 	 * @return DataObjectSet
 	 */
 	public function getRootPages() {
+		if(defined('Database::USE_ANSI_SQL')) {
+			$parentID    = '"ParentID"';
+			$showInMenus = '"ShowInMenus" = 1';
+		} else {
+			$parentID    = '`ParentID`';
+			$showInMenus = '`ShowInMenus` = 1';
+		}
+		
 		switch($this->PagesToDisplay) {
 			case 'ChildrenOf':
-				return DataObject::get('SiteTree', "\"ParentID\" = $this->ParentPageID AND \"ShowInMenus\" = 1");
+				return DataObject::get('SiteTree', "$parentID = $this->ParentPageID AND $showInMenus");
 			case 'Selected':
-				return $this->PagesToShow('"ShowInMenus" = 1');
-			case 'All':
+				return $this->PagesToShow($showInMenus);
 			default:
-				return DataObject::get('SiteTree', '"ParentID" = 0 AND "ShowInMenus" = 1');
+				return DataObject::get('SiteTree', "$parentID = 0 AND $showInMenus");
 		}
 	}
 	
