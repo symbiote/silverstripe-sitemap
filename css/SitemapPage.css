@@ -1,3 +1,38 @@
-/**
- *
- */
+#Sitemap ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+#Sitemap li {
+	margin: 5px 0;
+}
+
+#Sitemap li a {
+	background: #f0f0f0;
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 8px 5px;
+}
+	
+	#Sitemap li ul {
+		list-style-type: disc;
+		padding: 5px 0 1px 15px;
+	}
+	
+	#Sitemap li li a {
+		display: inline;
+		background: none;
+		font-size: 1.1em;
+		font-weight: normal;
+		padding: 5px 0;
+	}
+		
+		#Sitemap li li ul {
+			list-style-type: circle;
+			padding-left: 25px;
+		}
+			
+			#Sitemap li li li ul {
+				list-style-type: square;
+			}

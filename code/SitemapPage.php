@@ -65,7 +65,7 @@ class SitemapPage extends Page {
 		if(!$set) $set = $this->getRootPages();
 		
 		if($set && count($set)) {
-			$sitemap = '<ul class="sitemap">';
+			$sitemap = '<ul>';
 			
 			foreach($set as $page) {
 				if($page->ShowInMenus && $page->ID != $this->ID && $page->canView()) {
