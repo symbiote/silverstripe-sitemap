@@ -92,7 +92,7 @@ class SitemapPage extends Page {
 	 * @return DataObjectSet
 	 */
 	public function getRootPages() {
-		if(defined('Database::USE_ANSI_SQL')) {
+		if(defined('DB::USE_ANSI_SQL')) {
 			$parentID    = '"ParentID"';
 			$showInMenus = '"ShowInMenus" = 1';
 		} else {
@@ -126,7 +126,11 @@ class SitemapPage extends Page {
 			$sitemap->write();
 			$sitemap->doPublish();
 			
-			Database::alteration_message('Created default Sitemap page.', 'created');
+			if(method_exists('DB', 'alteration_message')) {
+				DB::alteration_message('Created default Sitemap page.', 'created');
+			} else {
+				Database::alteration_message('Created default Sitemap page.', 'created');
+			}
 		}
 		
 		parent::requireDefaultRecords();
