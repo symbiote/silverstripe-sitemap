@@ -1,4 +1,4 @@
 <?php
 /**
- * @package sitemap
+ * @package silverstripe-sitemap
  */

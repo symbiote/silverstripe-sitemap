@@ -11,7 +11,7 @@ Requirements
 
 Documentation
 -------------
-[Documentation (GitHub Wiki)](http://wiki.github.com/ajshort/ss-sitemap)
+[Documentation (GitHub Wiki)](http://wiki.github.com/ajshort/silverstripe-sitemap)
 
 Installation Instructions
 -------------------------
@@ -25,4 +25,4 @@ Usage Overview
 
 Known Issues
 ------------
-If you come across any issues please report them at the [Issue Tracker](http://github.com/ajshort/ss-sitemap/issues).
+If you come across any issues please report them at the [Issue Tracker](http://github.com/ajshort/silverstripe-sitemap/issues).

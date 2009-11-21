@@ -1,6 +1,6 @@
 <?php
 /**
- * @package sitemap
+ * @package silverstripe-sitemap
  * @subpackage tests
  */
 class SitemapPageTest extends FunctionalTest {

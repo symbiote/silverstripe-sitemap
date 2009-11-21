@@ -1,6 +1,6 @@
 <?php
 /**
- * @package sitemap
+ * @package silverstripe-sitemap
  */
 class SitemapPage extends Page {
 	
@@ -135,7 +135,7 @@ class SitemapPage extends Page {
 }
 
 /**
- * @package sitemap
+ * @package silverstripe-sitemap
  */
 class SitemapPage_Controller extends Page_Controller {
 }
