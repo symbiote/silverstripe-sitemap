@@ -23,6 +23,7 @@ class SitemapPage extends Page {
 	 */
 	public function getCMSFields() {
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
+		Requirements::javascript(THIRDPARTY_DIR . '/jquery-livequery/jquery.livequery.js');
 		Requirements::javascript('sitemap/javascript/SitemapPageAdmin.js');
 
 		$fields = parent::getCMSFields();
