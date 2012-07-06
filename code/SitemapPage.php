@@ -27,22 +27,18 @@ class SitemapPage extends Page {
 		Requirements::javascript('sitemap/javascript/SitemapPageAdmin.js');
 
 		$fields = parent::getCMSFields();
-		$fields->addFieldToTab (
-			'Root.Content',
-			$sitemapTab = new Tab('Sitemap',
-				new HeaderField($this->fieldLabel('PagesToDisplay'), 2),
-				new OptionSetField('PagesToDisplay', '', array (
-					'All'        => $this->fieldLabel('AllPages'),
-					'ChildrenOf' => $this->fieldLabel('ChildrenOf'),
-					'Selected'   => $this->fieldLabel('Selected')
-				)),
-				new TreeDropdownField('ParentPageID', '', 'SiteTree'),
-				new TreeMultiselectField('PagesToShow', '', 'SiteTree')
-			),
-			'Metadata'
-		);
-		$sitemapTab->setTitle($this->fieldLabel('Sitemap'));
 
+		$fields->findOrMakeTab('Root.Sitemap', $this->fieldLabel('Sitemap'));
+		$fields->addFieldsToTab('Root.Sitemap', array(
+			new HeaderField($this->fieldLabel('PagesToDisplay'), 2),
+			new OptionSetField('PagesToDisplay', '', array (
+				'All'        => $this->fieldLabel('AllPages'),
+				'ChildrenOf' => $this->fieldLabel('ChildrenOf'),
+				'Selected'   => $this->fieldLabel('Selected')
+			)),
+			new TreeDropdownField('ParentPageID', '', 'SiteTree'),
+			new TreeMultiselectField('PagesToShow', '', 'SiteTree')
+		));
 		return $fields;
 	}
 
