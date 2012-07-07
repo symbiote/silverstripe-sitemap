@@ -58,7 +58,7 @@ class SitemapPage extends Page {
 	/**
 	 * @return string
 	 */
-	public function getSitemap(DataObjectSet $set = null) {
+	public function getSitemap(ArrayList $set = null) {
 		if(!$set) $set = $this->getRootPages();
 
 		if($set && count($set)) {
@@ -96,7 +96,8 @@ class SitemapPage extends Page {
 					sprintf('"ParentID" = %d AND "ShowInMenus" = 1', $this->ParentPageID)
 				);
 			case 'Selected':
-				return $this->PagesToShow($showInMenus);
+				//return $this->PagesToShow($showInMenus);
+				return $this->PagesToShow();
 			default:
 				return DataObject::get('SiteTree', '"ParentID" = 0 AND "ShowInMenus" = 1');
 		}
