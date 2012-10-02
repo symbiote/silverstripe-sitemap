@@ -45,8 +45,8 @@ class SitemapPage extends Page {
 	/**
 	 * @return array
 	 */
-	public function fieldLabels() {
-		return array_merge(parent::fieldLabels(), array (
+	public function fieldLabels($includerelations = true) {
+		return array_merge(parent::fieldLabels($includerelations), array (
 			'Sitemap'        => _t('SitemapPage.SITEMAP', 'Sitemap'),
 			'PagesToDisplay' => _t('SitemapPage.PAGESTOSHOW', 'Pages To Show In The Sitemap'),
 			'AllPages'       => _t('SitemapPage.ALLPAGES', 'Display all pages which are displayed in the menu.'),
