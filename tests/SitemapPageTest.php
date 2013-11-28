@@ -7,6 +7,8 @@ class SitemapPageTest extends FunctionalTest {
 
 	public static $fixture_file = 'sitemap/tests/SitemapPageTest.yml';
 
+	protected static $use_draft_site = true;
+	
 	public function testShowAll() {
 		$sitemap = new SitemapPage();
 
@@ -83,7 +85,7 @@ class SitemapPageTest extends FunctionalTest {
  */
 class SitemapPageTest_Unviewable extends SiteTree {
 
-	public function canView() {
+	public function canView($member = null) {
 		return false;
 	}
 
