@@ -5,7 +5,7 @@
 	
 	$Content
 	
-	<% cached 'sitemap_page', $ID, $List($Page).Max($LastEdited) %>
+	<% cached 'sitemap_page', $ID, $LastEdited %>
 		<% if $Sitemap %>
 			<div id="Sitemap">$Sitemap</div>
 		<% end_if %>
