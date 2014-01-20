@@ -1,4 +1,4 @@
-SilverStripe Sitemap Module 0.1
+SilverStripe Sitemap Module 0.2
 ===============================
 
 Maintainer Contacts
@@ -7,7 +7,7 @@ Maintainer Contacts
 
 Requirements
 ------------
-*  SilverStripe 2.4+
+*  SilverStripe 3.1
 
 Documentation
 -------------
@@ -19,6 +19,11 @@ Installation Instructions
     "sitemap".
 2.  Visit "yoursite.com/dev/build" in your browser to rebuild the database. This should add a default sitemap page.
 3.  The CMS should now have a "Sitemap Page" page type, and there should be a default sitemap available.
+
+Installation with Composer
+--------------------------
+
+1. composer require "ajshort/silverstripe-sitemap:*"
 
 Usage Overview
 --------------
