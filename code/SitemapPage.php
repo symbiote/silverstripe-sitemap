@@ -16,7 +16,7 @@ class SitemapPage extends Page {
 		'PagesToShow' => 'SiteTree'
 	);
 
-	private static $icon = array('sitemap/images/sitemap', 'file');
+    private static $icon = array('sitemap/images/sitemap', 'file');
 
     private static $description = "A page for displaying a sitemap for your website.";
 
