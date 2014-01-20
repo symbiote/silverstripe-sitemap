@@ -18,6 +18,8 @@ class SitemapPage extends Page {
 
 	private static $icon = array('sitemap/images/sitemap', 'file');
 
+    private static $description = "A page for displaying a sitemap for your website.";
+
 	/**
 	 * @return FieldSet
 	 */
