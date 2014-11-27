@@ -3,7 +3,7 @@ SilverStripe Sitemap Module 0.1
 
 Maintainer Contacts
 -------------------
-*  Andrew Short (<andrewjshort@gmail.com>)
+*  Marcus Nyeholt (<marcus@silverstripe.com.au>)
 
 Requirements
 ------------
