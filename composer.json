@@ -1,6 +1,6 @@
 {
 	"name": "silverstripe-australia/sitemap",
-	"description": "Allows you to simply generate a sitemap page.",
+	"description": "Allows you to generate a sitemap page.",
 	"type": "silverstripe-module",
 	"homepage": "https://github.com/silverstripe-australia/silverstripe-sitemap",
 	"license": "BSD-3-Clause",
