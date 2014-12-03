@@ -1,5 +1,4 @@
-SilverStripe Sitemap Module 0.1
-===============================
+# SilverStripe Sitemap Module 0.1
 
 Maintainer Contacts
 -------------------
