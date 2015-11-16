@@ -1,0 +1,5 @@
+sk:
+  SitemapPage:
+    DESCRIPTION: 'Umožňuje vytvoriť ucelený zoznam stránok, z tých, ktoré sa nachádzajú na tomto webe.'
+    SINGULARNAME: 'Mapa stránok'
+    PLURALNAME: 'Mapy stránok'
