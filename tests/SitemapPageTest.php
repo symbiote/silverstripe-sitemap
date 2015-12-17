@@ -3,90 +3,95 @@
  * @package silverstripe-sitemap
  * @subpackage tests
  */
-class SitemapPageTest extends FunctionalTest {
+class SitemapPageTest extends FunctionalTest
+{
 
-	public static $fixture_file = 'sitemap/tests/SitemapPageTest.yml';
+    public static $fixture_file = 'sitemap/tests/SitemapPageTest.yml';
 
-	protected static $use_draft_site = true;
-	
-	public function testShowAll() {
-		$sitemap = new SitemapPage();
+    protected static $use_draft_site = true;
+    
+    public function testShowAll()
+    {
+        $sitemap = new SitemapPage();
 
-		$expected = array (
-			$this->objFromFixture('SiteTree', 'home')->Link(),
-			$this->objFromFixture('SiteTree', 'about')->Link(),
-			$this->objFromFixture('SiteTree', 'staff')->Link(),
-			$this->objFromFixture('SiteTree', 'history')->Link(),
-			$this->objFromFixture('SiteTree', 'contact')->Link()
-		);
+        $expected = array(
+            $this->objFromFixture('SiteTree', 'home')->Link(),
+            $this->objFromFixture('SiteTree', 'about')->Link(),
+            $this->objFromFixture('SiteTree', 'staff')->Link(),
+            $this->objFromFixture('SiteTree', 'history')->Link(),
+            $this->objFromFixture('SiteTree', 'contact')->Link()
+        );
 
-		$this->assertEquals (
-			$expected, HTTP::getLinksIn($sitemap->getSitemap()), 'Assert that all valid pages are shown in the sitemap.'
-		);
-	}
+        $this->assertEquals(
+            $expected, HTTP::getLinksIn($sitemap->getSitemap()), 'Assert that all valid pages are shown in the sitemap.'
+        );
+    }
 
-	public function testShowChildrenOf() {
-		$sitemap = new SitemapPage();
+    public function testShowChildrenOf()
+    {
+        $sitemap = new SitemapPage();
 
-		$sitemap->PagesToDisplay = 'ChildrenOf';
-		$sitemap->ParentPageID   = $this->idFromFixture('SiteTree', 'about');
+        $sitemap->PagesToDisplay = 'ChildrenOf';
+        $sitemap->ParentPageID   = $this->idFromFixture('SiteTree', 'about');
 
-		$expected = array (
-			$this->objFromFixture('SiteTree', 'staff')->Link(),
-			$this->objFromFixture('SiteTree', 'history')->Link()
-		);
+        $expected = array(
+            $this->objFromFixture('SiteTree', 'staff')->Link(),
+            $this->objFromFixture('SiteTree', 'history')->Link()
+        );
 
-		$this->assertEquals (
-			$expected, HTTP::getLinksIn($sitemap->getSitemap()), 'Assert that displaying the children of pages works.'
-		);
-	}
+        $this->assertEquals(
+            $expected, HTTP::getLinksIn($sitemap->getSitemap()), 'Assert that displaying the children of pages works.'
+        );
+    }
 
-	public function testShowSelected() {
-		$sitemap = new SitemapPage();
-		$sitemap->write();
+    public function testShowSelected()
+    {
+        $sitemap = new SitemapPage();
+        $sitemap->write();
 
-		$sitemap->PagesToDisplay = 'Selected';
-		$sitemap->PagesToShow()->add($this->objFromFixture('SiteTree', 'about'));
-		$sitemap->PagesToShow()->add($this->objFromFixture('SiteTree', 'contact'));
-		$sitemap->write();
+        $sitemap->PagesToDisplay = 'Selected';
+        $sitemap->PagesToShow()->add($this->objFromFixture('SiteTree', 'about'));
+        $sitemap->PagesToShow()->add($this->objFromFixture('SiteTree', 'contact'));
+        $sitemap->write();
 
-		$expected = array (
-			$this->objFromFixture('SiteTree', 'about')->Link(),
-			$this->objFromFixture('SiteTree', 'staff')->Link(),
-			$this->objFromFixture('SiteTree', 'history')->Link(),
-			$this->objFromFixture('SiteTree', 'contact')->Link()
-		);
+        $expected = array(
+            $this->objFromFixture('SiteTree', 'about')->Link(),
+            $this->objFromFixture('SiteTree', 'staff')->Link(),
+            $this->objFromFixture('SiteTree', 'history')->Link(),
+            $this->objFromFixture('SiteTree', 'contact')->Link()
+        );
 
-		$this->assertEquals (
-			$expected, HTTP::getLinksIn($sitemap->getSitemap()), 'Assert that showing selected pages & children works.'
-		);
-	}
+        $this->assertEquals(
+            $expected, HTTP::getLinksIn($sitemap->getSitemap()), 'Assert that showing selected pages & children works.'
+        );
+    }
 
-	public function testShowInMenusRespected() {
-		$sitemap  = new SitemapPage();
-		$homePage = $this->objFromFixture('SiteTree', 'home');
+    public function testShowInMenusRespected()
+    {
+        $sitemap  = new SitemapPage();
+        $homePage = $this->objFromFixture('SiteTree', 'home');
 
-		$this->assertContains (
-			$homePage->Link(), HTTP::getLinksIn($sitemap->getSitemap()), 'The page is displayed by default.'
-		);
+        $this->assertContains(
+            $homePage->Link(), HTTP::getLinksIn($sitemap->getSitemap()), 'The page is displayed by default.'
+        );
 
-		$homePage->ShowInMenus = false;
-		$homePage->write();
+        $homePage->ShowInMenus = false;
+        $homePage->write();
 
-		$this->assertNotContains (
-			$homePage->Link(), HTTP::getLinksIn($sitemap->getSitemap()), 'The page is displayed by default.'
-		);
-	}
-
+        $this->assertNotContains(
+            $homePage->Link(), HTTP::getLinksIn($sitemap->getSitemap()), 'The page is displayed by default.'
+        );
+    }
 }
 
 /**
  * @ignore
  */
-class SitemapPageTest_Unviewable extends SiteTree {
+class SitemapPageTest_Unviewable extends SiteTree
+{
 
-	public function canView($member = null) {
-		return false;
-	}
-
+    public function canView($member = null)
+    {
+        return false;
+    }
 }
