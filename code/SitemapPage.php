@@ -4,6 +4,10 @@
  */
 class SitemapPage extends Page {
 
+    private static $defaultTitleAttribute = "MenuTitle";
+
+    private static $defaultLinkText = "Title";
+
 	public static $db = array (
 		'PagesToDisplay' => "Enum('All, ChildrenOf, Selected', 'All')"
 	);
@@ -69,8 +73,8 @@ class SitemapPage extends Page {
 					$sitemap .= sprintf (
 						'<li><a href="%s" title="%s">%s</a>',
 						$page->XML_val('Link'),
-						$page->XML_val('MenuTitle'),
-						$page->XML_val('Title')
+						$page->XML_val($this->config()->defaultTitleAttribute),
+						$page->XML_val($this->config()->defaultLinkText)
 					);
 
 					if($children = $page->Children()) {
