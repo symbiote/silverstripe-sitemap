@@ -1,5 +1,11 @@
 sk:
   SitemapPage:
+    ALLPAGES: 'Všetky stránky, ktoré sú zobrazené v ponuke.'
+    CHILDRENOF: 'Podstránky určitej stránky.'
+    DEFAULTCONTENT: 'Stránka zobrazuje mapu stránok webu.'
     DESCRIPTION: 'Umožňuje vytvoriť ucelený zoznam stránok, z tých, ktoré sa nachádzajú na tomto webe.'
+    SELECTED: 'Iba označené stránky.'
     SINGULARNAME: 'Mapa stránok'
+    SITEMAP: Konfigurácia
+    PAGESTOSHOW: 'Stránky, ktoré sa majú zobrazovať na mape stránok'
     PLURALNAME: 'Mapy stránok'
