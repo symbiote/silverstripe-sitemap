@@ -1,5 +1,5 @@
 <%--<% require themedCSS(SitemapPage) %>--%>
-<% require css("symbiote/silverstripe-sitemap: client/css/sitemap_styles.css") %>
+<% require css("symbiote/silverstripe-sitemap: client/css/sitemap_styling.css") %>
 
 <div class="typography">
 	<h2>$Title</h2>
