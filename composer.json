@@ -1,7 +1,7 @@
 {
 	"name": "symbiote/silverstripe-sitemap",
-	"description": "Allows you to generate a sitemap page.",
-	"type": "silverstripe-module",
+	"description": "A sitemap-page module for SilverStripe CMS",
+	"type": "silverstripe-vendormodule",
 	"homepage": "https://github.com/symbiote/silverstripe-sitemap",
 	"license": "BSD-3-Clause",
 	"authors": [{
@@ -9,13 +9,19 @@
 		"email": "marcus@symbiote.com.au"
 	}],
 	"require": {
-		"silverstripe/cms": "~3.1"
+		"silverstripe/vendor-plugin": "^1.0",
+		"silverstripe/cms": "^4.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Symbiote\\SitemapPage\\": "src/"
+		}
 	},
 	"extra": {
 		"installer-name": "sitemap",
-		"branch-alias": {
-			"dev-master": "2.0.x-dev"
-		}
+		"expose": [
+			"client"
+		]
 	},
 	"replace": {
 		"silverstripe-australia/sitemap": "self.version"
