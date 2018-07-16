@@ -12,6 +12,6 @@ SilverStripe\CMS\Model\SiteTree:
     contact:
         Title: Contact Us
 
-Symbiote\SitemapPage\SitemapPageTest_Unviewable:
+Symbiote\SitemapPage\Tests\SitemapPageTest\SitemapPageTest_Unviewable:
     hidden:
         Title: Hidden Page

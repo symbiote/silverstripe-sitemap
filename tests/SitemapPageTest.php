@@ -5,6 +5,7 @@ namespace Symbiote\SitemapPage\Tests;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\HTTP;
 use SilverStripe\Dev\FunctionalTest;
+use Symbiote\SitemapPage\SitemapPage;
 
 /**
  * @package silverstripe-sitemap
@@ -14,8 +15,12 @@ class SitemapPageTest extends FunctionalTest {
 
     protected static $fixture_file = 'SitemapPageTest.yml';
 
+    protected static $extra_dataobjects = [
+        SitemapPageTest\SitemapPageTest_Unviewable::class,
+    ];
+
 	protected static $use_draft_site = true;
-	
+
 	public function testShowAll() {
 		$sitemap = new SitemapPage();
 
@@ -83,17 +88,6 @@ class SitemapPageTest extends FunctionalTest {
 		$this->assertNotContains (
 			$homePage->Link(), HTTP::getLinksIn($sitemap->getSitemap()), 'The page is displayed by default.'
 		);
-	}
-
-}
-
-/**
- * @ignore
- */
-class SitemapPageTest_Unviewable extends SiteTree {
-
-	public function canView($member = null) {
-		return false;
 	}
 
 }
