@@ -41,8 +41,7 @@ class SitemapPage
     private static $icon = 'symbiote/silverstripe-sitemap: client/images/sitemap_icon.gif';
 
     /**
-     * @param $member
-     *
+     * @param mixed
      * @return boolean
      */
     public function canAddChildren($member = null)
@@ -90,33 +89,32 @@ class SitemapPage
     /**
      * @return string
      */
-//    public function SitemapPages()
-//    {
-//        $pages = $this->getRootPages();
-//
-//        if ($set && count($set)) {
-//            $sitemap = '<ul>';
-//
-//            foreach ($set as $page) {
-//                if ($page->ShowInMenus && $page->ID != $this->ID && $page->canView()) {
-//                    $sitemap .= sprintf(
-//                        '<li><a href="%s" title="%s">%s</a>',
-//                        $page->XML_val('Link'),
-//                        $page->XML_val('MenuTitle'),
-//                        $page->XML_val('Title')
-//                    );
-//
-//                    if ($children = $page->Children()) {
-//                        $sitemap .= $this->getSitemap($children);
-//                    }
-//
-//                    $sitemap .= '</li>';
-//                }
-//            }
-//
-//            return $sitemap . '</ul>';
-//        }
-//    }
+    public function getSitemap(ArrayList $set = null) {
+        if(!$set) $set = $this->getRootPages();
+
+        if($set && count($set)) {
+            $sitemap = '<ul>';
+
+            foreach($set as $page) {
+                if($page->ShowInMenus && $page->ID != $this->ID && $page->canView()) {
+                    $sitemap .= sprintf (
+                        '<li><a href="%s" title="%s">%s</a>',
+                        $page->XML_val('Link'),
+                        $page->XML_val('MenuTitle'),
+                        $page->XML_val('Title')
+                    );
+
+                    if($children = $page->Children()) {
+                        $sitemap .= $this->getSitemap($children);
+                    }
+
+                    $sitemap .= '</li>';
+                }
+            }
+
+            return $sitemap .'</ul>';
+        }
+    }
 
     /**
      * @return DataList

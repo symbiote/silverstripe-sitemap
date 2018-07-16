@@ -1,6 +1,6 @@
 <?php
 
-namespace Symbiote\SitemapPage;
+namespace Symbiote\SitemapPage\Tests;
 
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\HTTP;
@@ -12,7 +12,7 @@ use SilverStripe\Dev\FunctionalTest;
  */
 class SitemapPageTest extends FunctionalTest {
 
-	public static $fixture_file = 'sitemap/tests/SitemapPageTest.yml';
+    protected static $fixture_file = 'SitemapPageTest.yml';
 
 	protected static $use_draft_site = true;
 	

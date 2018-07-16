@@ -14,11 +14,11 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Symbiote\\SitemapPage\\": "src/"
+			"Symbiote\\SitemapPage\\": "src/",
+			"Symbiote\\SitemapPage\\Tests\\": "tests/"
 		}
 	},
 	"extra": {
-		"installer-name": "sitemap",
 		"expose": [
 			"client"
 		]
