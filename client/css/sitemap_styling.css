@@ -5,6 +5,7 @@
 
 #Sitemap li {
 	margin: 5px 0;
+	list-style: none;
 }
 
 #Sitemap li a {
@@ -13,6 +14,7 @@
 	font-size: 1.2em;
 	font-weight: bold;
 	padding: 8px 5px;
+	border-bottom: none;
 }
 	
 	#Sitemap li ul {

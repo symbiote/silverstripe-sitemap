@@ -1,0 +1,15 @@
+en:
+  SitemapPage:
+    ALLPAGES: 'Display all pages which are displayed in the menu.'
+    CHILDRENOF: 'Display the children of a specific page.'
+    DEFAULTCONTENT: 'Sitemap of the pages of this site.'
+    PAGESTOSHOW: 'Pages To Show In The Sitemap'
+    SELECTED: 'Display only the selected pages.'
+    SITEMAP: Sitemap
+  Symbiote\SitemapPage\SitemapPage:
+    DESCRIPTION: '(HTML) sitemap page generated from the site tree'
+    PLURALNAME: 'Sitemap Pages'
+    PLURALS:
+      one: 'A Sitemap Page'
+      other: '{count} Sitemap Pages'
+    SINGULARNAME: 'Sitemap Page'

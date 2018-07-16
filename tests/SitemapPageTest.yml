@@ -1,17 +1,17 @@
-SiteTree:
+SilverStripe\CMS\Model\SiteTree:
     home:
         Title: Home
     about:
         Title: About
     staff:
         Title: Staff
-        Parent: =>SiteTree.about
+        Parent: =>SilverStripe\CMS\Model\SiteTree.about
     history:
         Title: History
-        Parent: =>SiteTree.about
+        Parent: =>SilverStripe\CMS\Model\SiteTree.about
     contact:
         Title: Contact Us
 
-SitemapPageTest_Unviewable:
+Symbiote\SitemapPage\SitemapPageTest_Unviewable:
     hidden:
         Title: Hidden Page

@@ -1,11 +1,18 @@
 <?php
+
+namespace Symbiote\SitemapPage\Tests;
+
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\HTTP;
+use SilverStripe\Dev\FunctionalTest;
+
 /**
  * @package silverstripe-sitemap
  * @subpackage tests
  */
 class SitemapPageTest extends FunctionalTest {
 
-	public static $fixture_file = 'sitemap/tests/SitemapPageTest.yml';
+    protected static $fixture_file = 'SitemapPageTest.yml';
 
 	protected static $use_draft_site = true;
 	
@@ -13,11 +20,11 @@ class SitemapPageTest extends FunctionalTest {
 		$sitemap = new SitemapPage();
 
 		$expected = array (
-			$this->objFromFixture('SiteTree', 'home')->Link(),
-			$this->objFromFixture('SiteTree', 'about')->Link(),
-			$this->objFromFixture('SiteTree', 'staff')->Link(),
-			$this->objFromFixture('SiteTree', 'history')->Link(),
-			$this->objFromFixture('SiteTree', 'contact')->Link()
+			$this->objFromFixture(SiteTree::class, 'home')->Link(),
+			$this->objFromFixture(SiteTree::class, 'about')->Link(),
+			$this->objFromFixture(SiteTree::class, 'staff')->Link(),
+			$this->objFromFixture(SiteTree::class, 'history')->Link(),
+			$this->objFromFixture(SiteTree::class, 'contact')->Link()
 		);
 
 		$this->assertEquals (
@@ -29,11 +36,11 @@ class SitemapPageTest extends FunctionalTest {
 		$sitemap = new SitemapPage();
 
 		$sitemap->PagesToDisplay = 'ChildrenOf';
-		$sitemap->ParentPageID   = $this->idFromFixture('SiteTree', 'about');
+		$sitemap->ParentPageID   = $this->idFromFixture(SiteTree::class, 'about');
 
 		$expected = array (
-			$this->objFromFixture('SiteTree', 'staff')->Link(),
-			$this->objFromFixture('SiteTree', 'history')->Link()
+			$this->objFromFixture(SiteTree::class, 'staff')->Link(),
+			$this->objFromFixture(SiteTree::class, 'history')->Link()
 		);
 
 		$this->assertEquals (
@@ -46,15 +53,15 @@ class SitemapPageTest extends FunctionalTest {
 		$sitemap->write();
 
 		$sitemap->PagesToDisplay = 'Selected';
-		$sitemap->PagesToShow()->add($this->objFromFixture('SiteTree', 'about'));
-		$sitemap->PagesToShow()->add($this->objFromFixture('SiteTree', 'contact'));
+		$sitemap->PagesToShow()->add($this->objFromFixture(SiteTree::class, 'about'));
+		$sitemap->PagesToShow()->add($this->objFromFixture(SiteTree::class, 'contact'));
 		$sitemap->write();
 
 		$expected = array (
-			$this->objFromFixture('SiteTree', 'about')->Link(),
-			$this->objFromFixture('SiteTree', 'staff')->Link(),
-			$this->objFromFixture('SiteTree', 'history')->Link(),
-			$this->objFromFixture('SiteTree', 'contact')->Link()
+			$this->objFromFixture(SiteTree::class, 'about')->Link(),
+			$this->objFromFixture(SiteTree::class, 'staff')->Link(),
+			$this->objFromFixture(SiteTree::class, 'history')->Link(),
+			$this->objFromFixture(SiteTree::class, 'contact')->Link()
 		);
 
 		$this->assertEquals (
@@ -64,7 +71,7 @@ class SitemapPageTest extends FunctionalTest {
 
 	public function testShowInMenusRespected() {
 		$sitemap  = new SitemapPage();
-		$homePage = $this->objFromFixture('SiteTree', 'home');
+		$homePage = $this->objFromFixture(SiteTree::class, 'home');
 
 		$this->assertContains (
 			$homePage->Link(), HTTP::getLinksIn($sitemap->getSitemap()), 'The page is displayed by default.'
